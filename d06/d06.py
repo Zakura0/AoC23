@@ -1,3 +1,4 @@
+import numpy as np
 temp = []
 for line in open("input.txt").read().splitlines():
     temp.append(list(map(int, line.split(":")[1].split())))
@@ -23,8 +24,11 @@ for record in records:
 actual_time = int(actual_time)
 actual_record = int(actual_record)
 won_p2 = 0
-for hold in range(actual_time):
-    if hold * (actual_time - hold) > actual_record:
-        won_p2 += 1
-print(won_p2)
+# for hold in range(actual_time):
+#     if hold * (actual_time - hold) > actual_record:
+#         won_p2 += 1
+# print(won_p2)
+roots = np.roots([1, -actual_time, actual_record])  # t^2 - t * time + distance = 0
+won_p2_maths = int(np.floor(roots[0]) - np.ceil(roots[1]) + 1)
+print(won_p2_maths)
 
