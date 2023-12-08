@@ -16,9 +16,8 @@ for position in starting_pos:
     loop = []
     i = 0
     z = None
-    z_not_found = True
     current_pos = position
-    while z_not_found:
+    while True:
         while steps == 0 or not current_pos.endswith("Z"):
             steps += 1
             if direction[i] == "L":
@@ -35,7 +34,7 @@ for position in starting_pos:
             z = current_pos
             steps = 0
         elif current_pos == z:
-            z_not_found = False
+            break
             
     loops.append(loop)
 single_nums = [loop[0] for loop in loops]
