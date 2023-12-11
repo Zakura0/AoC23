@@ -37,6 +37,7 @@ for position in starting_pos:
             break
             
     loops.append(loop)
+print(loops)
 single_nums = [loop[0] for loop in loops]
 result = math.lcm(*single_nums)
 print(result)
